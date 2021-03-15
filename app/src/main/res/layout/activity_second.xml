@@ -1,57 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="80dp"
     tools:context=".SecondActivity">
 
-    <TextView
-        android:id="@+id/text_header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/text_header"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_header" />
-
-
     <Button
-        android:id="@+id/button_second"
-        android:layout_width="wrap_content"
+        android:id="@+id/cheeseItem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/button_second"
-        android:onClick="returnReply"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"  />
-
-    <EditText
-        android:id="@+id/editText_second"
-        android:layout_width="0dp"
+        android:text="Cheese"/>
+    <Button
+        android:id="@+id/riceItem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:inputType="textLongMessage"
-        android:hint="@string/editText_second"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_second"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Rice"/>
+    <Button
+        android:id="@+id/appleItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Apples"/>
+    <Button
+        android:id="@+id/orangeItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Orange"/>
+    <Button
+        android:id="@+id/sausageItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sausage"/>
+    <Button
+        android:id="@+id/potatoItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Potato"/>
+    <Button
+        android:id="@+id/noodlesItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Noodles"/>
+    <Button
+        android:id="@+id/biscuitItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Biscuit"/>
+    <Button
+        android:id="@+id/dairymilkItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dairy Milk"/>
+    <Button
+        android:id="@+id/chocopieItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chocopie"/>
+</LinearLayout>

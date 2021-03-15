@@ -2,73 +2,122 @@ package com.project.twoactivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class SecondActivity extends AppCompatActivity {
-    private static final String LOG_TAG = SecondActivity.class.getSimpleName();
-    public static final String EXTRA_REPLY = "com.project.android.twoactivities.extra.REPLY";
-    private EditText mReply;
+public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
+    Button cheeseItem, riceItem, appleItem, orangeItem, sausageItem, potatoItem, noodlesItem, buscuitItem, dairymilkItem, chocopieItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Log.d(LOG_TAG, "-------");
-        Log.d(LOG_TAG, "onCreate");
-        mReply = findViewById(R.id.editText_second);
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        TextView textView = findViewById(R.id.text_message);
-        textView.setText(message);
+        cheeseItem = findViewById(R.id.cheeseItem);
+        cheeseItem.setOnClickListener(this);
+        /*
+        riceItem = findViewById(R.id.riceItem);
+        riceItem.setOnClickListener(this::onClick);
+        appleItem = findViewById(R.id.appleItem);
+        appleItem.setOnClickListener(this);
+        orangeItem = findViewById(R.id.orangeItem);
+        orangeItem.setOnClickListener(this);
+        sausageItem = findViewById(R.id.sausageItem);
+        potatoItem.setOnClickListener(this);
+        potatoItem = findViewById(R.id.potatoItem);
+        noodlesItem.setOnClickListener(this);
+        noodlesItem = findViewById(R.id.noodlesItem);
+        buscuitItem.setOnClickListener(this::onClick);
+        buscuitItem = findViewById(R.id.biscuitItem);
+        dairymilkItem.setOnClickListener(this);
+        dairymilkItem = findViewById(R.id.dairymilkItem);
+        chocopieItem.setOnClickListener(this);
+        chocopieItem = findViewById(R.id.chocopieItem);
+
+         */
     }
 
-    public void returnReply(View view) {
-        String reply = mReply.getText().toString();
-        Intent replyIntent = new Intent();
-        replyIntent.putExtra(EXTRA_REPLY, reply);
-        setResult(RESULT_OK, replyIntent);
-        Log.d(LOG_TAG, "End SecondActivity");
-        finish();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(LOG_TAG, "onStart");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(LOG_TAG, "onPause");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(LOG_TAG, "onRestart");
+    public static Intent makeIntent(Context context) {
+        Intent intent = new Intent(context, SecondActivity.class);
+        return intent;
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(LOG_TAG, "onResume");
-    }
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()) {
+            case R.id.cheeseItem:
+                intent = new Intent();
+                intent.putExtra("item1", cheeseItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+                /*
+            case R.id.riceItem:
+                intent = new Intent();
+                intent.putExtra("item1", riceItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case R.id.appleItem:
+                intent = new Intent();
+                intent.putExtra("item1", appleItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case R.id.orangeItem:
+                intent = new Intent();
+                intent.putExtra("item1", orangeItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case R.id.sausageItem:
+                intent = new Intent();
+                intent.putExtra("item1", sausageItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case R.id.potatoItem:
+                intent = new Intent();
+                intent.putExtra("item1", potatoItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case R.id.noodlesItem:
+                intent = new Intent();
+                intent.putExtra("item1", noodlesItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case R.id.biscuitItem:
+                intent = new Intent();
+                intent.putExtra("item1", buscuitItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            case R.id.dairymilkItem:
+                intent = new Intent();
+                intent.putExtra("item1", dairymilkItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(LOG_TAG, "onStop");
-    }
+            case R.id.chocopieItem:
+                intent = new Intent();
+                intent.putExtra("item1", chocopieItem.getText().toString());
+                setResult(RESULT_OK, intent);
+                finish();
+                break;
+            */
+            default:
+                break;
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(LOG_TAG, "onDestroy");
+        }
     }
 }
