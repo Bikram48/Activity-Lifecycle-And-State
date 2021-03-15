@@ -1,4 +1,4 @@
-package com.project.twoactivities;
+package com.project.counterhomework;
 
 import org.junit.Test;
 
