@@ -1,6 +1,13 @@
-Activity lifecycle and state
+Activity Lifecycle and State
 ============================
-#### Task2
-##### In a previous task, when we rotate our device, the activity is recreated and the messagereply and header_reply textview value is reset to null.<br> So in this task onSaveInstanceState() method has been implemented 
-to preserve the instance state of messagereply and header_reply textviews.
+### Coding Challenge
+
+<p>This is a shopping-list app which contains two activities MainActivity and SecondActivity. MainActivity shows
+the list of items added by the user and there is also a add button which sends the user to the secondactivity. SecondActivity 
+contains the list of items available. By clicking on those items user can add the item.</p>
+
+##### App demonstration
 ![](./video.gif)
+
+#### Checking if the current state of the shopping list is saved, when the user rotates the phone.
+![](./video1.gif)

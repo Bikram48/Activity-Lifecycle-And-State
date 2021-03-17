@@ -13,34 +13,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
-    Button cheeseItem, riceItem, appleItem, orangeItem, sausageItem, potatoItem, noodlesItem, buscuitItem, dairymilkItem, chocopieItem;
+    Button[] buttons=new Button[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        cheeseItem = findViewById(R.id.cheeseItem);
-        cheeseItem.setOnClickListener(this);
-        /*
-        riceItem = findViewById(R.id.riceItem);
-        riceItem.setOnClickListener(this::onClick);
-        appleItem = findViewById(R.id.appleItem);
-        appleItem.setOnClickListener(this);
-        orangeItem = findViewById(R.id.orangeItem);
-        orangeItem.setOnClickListener(this);
-        sausageItem = findViewById(R.id.sausageItem);
-        potatoItem.setOnClickListener(this);
-        potatoItem = findViewById(R.id.potatoItem);
-        noodlesItem.setOnClickListener(this);
-        noodlesItem = findViewById(R.id.noodlesItem);
-        buscuitItem.setOnClickListener(this::onClick);
-        buscuitItem = findViewById(R.id.biscuitItem);
-        dairymilkItem.setOnClickListener(this);
-        dairymilkItem = findViewById(R.id.dairymilkItem);
-        chocopieItem.setOnClickListener(this);
-        chocopieItem = findViewById(R.id.chocopieItem);
-
-         */
+        buttons[0] = findViewById(R.id.cheeseItem);
+        buttons[1] = findViewById(R.id.riceItem);
+        buttons[2] = findViewById(R.id.appleItem);
+        buttons[3] = findViewById(R.id.orangeItem);
+        buttons[4] = findViewById(R.id.sausageItem);
+        buttons[5] = findViewById(R.id.potatoItem);
+        buttons[6] = findViewById(R.id.noodlesItem);
+        buttons[7] = findViewById(R.id.biscuitItem);
+        buttons[8] = findViewById(R.id.dairymilkItem);
+        buttons[9] = findViewById(R.id.chocopieItem);
+        for(Button button:buttons){
+            button.setOnClickListener(this::onClick);
+        }
     }
 
     public static Intent makeIntent(Context context) {
@@ -50,74 +41,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        Intent intent;
-        switch (v.getId()) {
-            case R.id.cheeseItem:
-                intent = new Intent();
-                intent.putExtra("item1", cheeseItem.getText().toString());
-                setResult(RESULT_OK, intent);
+        for(int i=0;i<buttons.length;i++){
+            if(v.getId()==buttons[i].getId()){
+                Intent intent=new Intent();
+                intent.putExtra("item_name",buttons[i].getText().toString());
+                setResult(RESULT_OK,intent);
                 finish();
-                break;
-                /*
-            case R.id.riceItem:
-                intent = new Intent();
-                intent.putExtra("item1", riceItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-            case R.id.appleItem:
-                intent = new Intent();
-                intent.putExtra("item1", appleItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-            case R.id.orangeItem:
-                intent = new Intent();
-                intent.putExtra("item1", orangeItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-            case R.id.sausageItem:
-                intent = new Intent();
-                intent.putExtra("item1", sausageItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-            case R.id.potatoItem:
-                intent = new Intent();
-                intent.putExtra("item1", potatoItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-            case R.id.noodlesItem:
-                intent = new Intent();
-                intent.putExtra("item1", noodlesItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-            case R.id.biscuitItem:
-                intent = new Intent();
-                intent.putExtra("item1", buscuitItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-            case R.id.dairymilkItem:
-                intent = new Intent();
-                intent.putExtra("item1", dairymilkItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-
-            case R.id.chocopieItem:
-                intent = new Intent();
-                intent.putExtra("item1", chocopieItem.getText().toString());
-                setResult(RESULT_OK, intent);
-                finish();
-                break;
-            */
-            default:
-                break;
-
+            }
         }
     }
 }
